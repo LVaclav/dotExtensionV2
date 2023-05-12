@@ -1,22 +1,18 @@
 console.log('From content: script loaded');
-window.addEventListener(
-  'message',
-  (event) => {
-    // We only accept messages from ourselves
-    if (event.source !== window) {
-      return;
-      console.log('error1');
-    }
-    if (event.data.type && event.data.type === 'FROM_PAGE') {
-      console.log('Content script received: ' + event.data.text);
-      port.postMessage(event.data.text);
-    } else {
-      console.log('error2');
-    }
-  },
-  false
-);
 
+if (document.title === 'PDA Bookings') {
+  const parentElement = document.querySelector('#id7 > div.licensing-big-form');
+  const menuTemplate = `
+    <div id="MyExtension" style="border-style: solid; border-width: 4px;">
+      <input type="checkbox" value="ROCK">
+      <label> Book the test (if not it will jsut alert you) </label>
+      <input type="submit" value="Ahoj!!" class="licensing-button-short">
+    </div>
+  `;
+  parentElement.insertAdjacentHTML('beforeend', menuTemplate);
+}
+
+console.log(name);
 function RunScript() {
   myIntervel = setInterval(function () {
     var now = new Date();

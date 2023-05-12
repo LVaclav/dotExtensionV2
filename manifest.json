@@ -1,19 +1,14 @@
 
 {
   "manifest_version": 3,
-  "name": "My Extension",
-  "version": "1.0",
+  "name": "Dot Booker",
+  "version": "2.0",
   "permissions": ["scripting", "declarativeContent", "tabs"],
-  "background": {
-    "service_worker": "background.js"
-  },
   "content_scripts": [{
     "matches": ["https://*.transport.wa.gov.au/*"],
     "js": ["content.js"]
   }],
   "action": {
-    "default_popup": "popup.html",
-    "default_title": "Dot Booker",
-    "default_icon": "hello_extensions.png"
+    "default_icon": "turt.png"
   }
 }
