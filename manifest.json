@@ -6,8 +6,12 @@
   "permissions": ["scripting", "declarativeContent", "tabs"],
   "content_scripts": [{
     "matches": ["https://*.transport.wa.gov.au/*"],
-    "js": ["content.js"]
+    "js": ["thirdParty/jquery.1.10.2.min.js", "content.js"]
   }],
+  "background.service_worker":
+  {
+      "scripts": ["jquery-3.7.0.js", "background.js"]
+  },
   "action": {
     "default_icon": "turt.png"
   }
