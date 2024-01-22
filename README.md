@@ -1,5 +1,5 @@
 # DOTExtension
-Automatic DOT Test Booker:
+Automatic DOT Test Booker: </br>
 This extension runs on the West Australian Department of Transport Practical Driving Assessment booking site. It will automatically find and book the test you want. 
 ## Desciprtion
 The plugin injects custom HTML and JavaScript into the site. It adds an auto-booking menu with a range of options. Users can define date parameters, location preferences and time preferences. 
