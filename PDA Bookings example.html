@@ -1,0 +1,756 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0066)https://online.transport.wa.gov.au/pdabooking/manage/wicket/page?1 -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <title>PDA Bookings</title>
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./PDA Bookings_files/jquery-ui.custom.css"
+    />
+    <script
+      type="text/javascript"
+      src="./PDA Bookings_files/jquery-3.7.1.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="./PDA Bookings_files/jquery-ui.min.js"
+    ></script>
+    <script src="./PDA Bookings_files/datePicker.js"></script>
+    <script id="au-gov-wa-dpi-trelis-web-pdabooking-ManageBookingsPage-0">
+      /*<![CDATA[*/
+
+      function initCheckBoxLimiter() {
+        // 94 reginal sites so far, sets limit to 150
+        // lifts number of sites limition logically in the near future.
+        initCheckBoxLimiter(150);
+      }
+
+      function initCheckBoxLimiter(limit) {
+        $(':checkbox').change(function () {
+          if ($(this).siblings(':checked').length >= limit) {
+            this.checked = false;
+          }
+        });
+      }
+
+      /*]]>*/
+    </script>
+
+    <script
+      type="text/javascript"
+      src="./PDA Bookings_files/wicket-event-ver-DF3B8CC0510EDA687422979E5B93FDE7.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="./PDA Bookings_files/wicket-ajax-ver-EE9CA4F0AAB28E94F63408F7494C6EEC.js"
+    ></script>
+    <script type="text/javascript" id="wicket-ajax-base-url">
+      /*<![CDATA[*/
+      Wicket.Ajax.baseUrl = 'wicket/page?1';
+      /*]]>*/
+    </script>
+    <script type="text/javascript" id="attachChoice">
+      /*<![CDATA[*/
+      function attachChoiceHandlers(markupId, callbackScript) {
+        var inputNodes = wicketGet(markupId).getElementsByTagName('input');
+        for (var i = 0; i < inputNodes.length; i++) {
+          var inputNode = inputNodes[i];
+          if (!inputNode.type) continue;
+          if (
+            !(inputNode.className.indexOf('wicket-' + markupId) >= 0) &&
+            !(inputNode.id.indexOf(markupId + '-') >= 0)
+          )
+            continue;
+          var inputType = inputNode.type.toLowerCase();
+          if (inputType == 'checkbox' || inputType == 'radio') {
+            Wicket.Event.add(inputNode, 'click', callbackScript);
+          }
+        }
+      }
+
+      /*]]>*/
+    </script>
+    <script type="text/javascript">
+      /*<![CDATA[*/
+      Wicket.Event.add(window, 'load', function (event) {
+        attachChoiceHandlers('id1', function () {
+          var wcall = wicketAjaxPost(
+            './page?1-4.IBehaviorListener.1-layout-layout_body-requestForm-searchBookingContainer-siteRegion',
+            wicketSerializeForm(document.getElementById('id1', false)),
+            function () {}.bind(this),
+            function () {}.bind(this),
+            function () {
+              return Wicket.$('id1') != null;
+            }.bind(this)
+          );
+        });
+      });
+      /*]]>*/
+    </script>
+    <script type="text/javascript">
+      /*<![CDATA[*/
+      Wicket.Event.add(window, 'load', function (event) {
+        attachChoiceHandlers('id2', function () {
+          var wcall = wicketAjaxPost(
+            './page?1-4.IBehaviorListener.1-layout-layout_body-requestForm-searchBookingContainer-siteList',
+            wicketSerializeForm(document.getElementById('id2', false)),
+            function () {}.bind(this),
+            function () {}.bind(this),
+            function () {
+              return Wicket.$('id2') != null;
+            }.bind(this)
+          );
+        });
+      });
+      /*]]>*/
+    </script>
+
+    <link
+      rel="stylesheet"
+      href="./PDA Bookings_files/styles_generic.css"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="./PDA Bookings_files/styles_licensing.css"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="./PDA Bookings_files/dot_styles.css"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="./PDA Bookings_files/dot_external_font-awesome.min.css"
+      type="text/css"
+    />
+    <meta
+      name="DC.Title"
+      content="Department of Transport - Online Application"
+    />
+    <meta name="DC.Publisher" content="Department of Transport" />
+    <meta name="Date Created" content="10/02/2011 4:43:09 PM" />
+    <meta name="Date Published" content="16/02/2011 4:45:42 PM" />
+    <meta name="Identifier" content="http://www.transport.wa.gov.au/app.asp" />
+    <meta name="Location" content="Western Australia" />
+    <meta
+      name="Description"
+      content="Access a range of Department of Transport licence checks and services"
+    />
+    <meta name="Keywords" content="Licensing" />
+    <meta name="Publisher" content="Department of Transport" />
+    <meta name="Section" content="" />
+    <meta name="Function" content="Information Management" />
+    <meta name="Type" content="form" />
+    <meta name="viewport" content="width = device-width; initial-scale=1;" />
+    <script
+      type="text/javascript"
+      src="./PDA Bookings_files/accessibility.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="./PDA Bookings_files/jquery-3.7.1.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="./PDA Bookings_files/jquery-ui.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      id="au-gov-wa-dpi-trelis-web-layout-standard-StandardLayoutLight-0"
+    >
+      /*<![CDATA[*/
+
+      var RecaptchaOptions = {
+        theme: 'white',
+      };
+
+      // function to display year in footer in online TRELIS applications (pay online, driver licence enquiry etc)
+      function displayYear() {
+        document.write(new Date().getFullYear());
+      }
+
+      /*]]>*/
+    </script>
+
+    <script
+      src="./PDA Bookings_files/urchin.js"
+      type="text"
+      javascript=""
+    ></script>
+    <script
+      type="text"
+      javascript=""
+      id="au-gov-wa-dpi-trelis-web-layout-standard-StandardLayoutLight-1"
+    >
+      _userv=0;urchinTracker();
+    </script>
+
+    <title>Practical Driving Assessment Bookings</title>
+    <script type="text/javascript" src="./PDA Bookings_files/tools.js"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./PDA Bookings_files/styles_application.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./PDA Bookings_files/common.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./PDA Bookings_files/pdabooking.css"
+    />
+    <!--[if IE
+      ]><link rel="stylesheet" type="text/css" href="../../css/lt7style.css" />
+    <![endif]-->
+    <meta
+      name="Cache-Control"
+      content="no-cache, max-age=0, must-revalidate, no-store"
+    />
+    <meta name="Expires" content="-1" />
+    <meta name="Pragma" content="no-cache" />
+    <script type="text/javascript" id="myScript">
+      /*<![CDATA[*/
+      function callWicket(markupId) {
+        var wcall = wicketAjaxGet(
+          './page?1-4.IBehaviorListener.0-&markupId=' + markupId,
+          function () {},
+          function () {}
+        );
+      }
+      /*]]>*/
+    </script>
+  </head>
+  <body onload="initDatePicker(); initCheckBoxLimiter();">
+    <span>
+      <div id="container">
+        <div id="header">
+          <div class="container-center">
+            <div class="header no_padding_on_big_screen">
+              <div class="header-grid-50">
+                <a href="http://www.transport.wa.gov.au/dotdirect/dotdirect.asp"
+                  ><div id="homecontent_headerarea_logo">
+                    <div id="logo"></div>
+                    <div class="clear"></div></div
+                ></a>
+              </div>
+              <div class="header-grid-50">
+                <div id="header-right">
+                  <div class="print">
+                    <a
+                      title="Print this page"
+                      href="javascript:window.print();"
+                    >
+                      <span class="icon-print icon-2x"></span>
+                    </a>
+                  </div>
+                  <br class="clear" />
+                  <div id="resize-box">
+                    <a id="hdr__decr_font" href="javascript:decreaseFontSize()"
+                      >A<sup>-</sup></a
+                    >
+                    <a id="hdr__inc_font" href="javascript:increaseFontSize()"
+                      >A<sup>+</sup></a
+                    >
+                    <a id="hdr__reset_font" href="javascript:resetFontSize()"
+                      >A<sup>=</sup></a
+                    >
+                  </div>
+                  <div class="accessibility">
+                    <a
+                      href="https://www.transport.wa.gov.au/about-us/legal-information"
+                      title="Accessibility"
+                      target="_blank"
+                    >
+                      Accessibility
+                    </a>
+                    /
+                    <a
+                      href="https://www.transport.wa.gov.au/about-us/contact"
+                      title="Contact us"
+                      target="_blank"
+                    >
+                      Contact us
+                    </a>
+                  </div>
+                  <br class="clear" />
+                </div>
+              </div>
+              <div class="clear"></div>
+            </div>
+          </div>
+        </div>
+        <div id="menu">
+          <div class="container-center">
+            <div class="no_padding_on_big_screen">
+              <div class="menubar" style="height: 3.7em">
+                <span class="page-title"
+                  >Practical Driving Assessment Bookings</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="content">
+          <div class="container-center">
+            <span id="id3"> </span>
+            <span id="id4"
+              >New assessment times become available as other people change
+              their bookings. Please check regularly for availability.
+              <br />Bookings cannot be made more than 6 months in advance.</span
+            >
+
+            <form
+              autocomplete="off"
+              id="id5"
+              method="post"
+              action="https://online.transport.wa.gov.au/pdabooking/manage/wicket/page?1-4.IFormSubmitListener-layout-layout_body-requestForm"
+            >
+              <div
+                style="
+                  width: 0px;
+                  height: 0px;
+                  position: absolute;
+                  left: -100px;
+                  top: -100px;
+                  overflow: hidden;
+                "
+              >
+                <input type="hidden" name="id5_hf_0" id="id5_hf_0" />
+              </div>
+              <div id="id6">
+                <div>
+                  <span class="section-title"
+                    >Current bookings for <span>Noah Cervenka</span>
+                  </span>
+                  <div id="currentBookings" class="licensing-big-form">
+                    <span>
+                      <div></div>
+                      <table class="bookingstable">
+                        <thead>
+                          <tr>
+                            <th>Test Type</th>
+                            <th>Date &amp; Time</th>
+                            <th>Site</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>
+                              <span>C - Car</span>
+                            </td>
+                            <td>
+                              <span>09/02/2026 9:45 AM</span>
+                            </td>
+                            <td>
+                              <span>Success</span>
+                            </td>
+                            <td>
+                              <input
+                                type="submit"
+                                title="Change this booking"
+                                value="Change"
+                                class="licensing-button-short"
+                                name="manageBookingContainer:currentBookingsTable:listView:0:listViewPanel:change"
+                                id="id18"
+                                onclick="if (function(){return Wicket.$$(this)&amp;&amp;Wicket.$$(&#39;id5&#39;)}.bind(this)()) { Wicket.showIncrementally(&#39;id18--ajax-indicator&#39;);}var wcall=wicketSubmitFormById(&#39;id5&#39;, &#39;./page?1-4.IBehaviorListener.1-layout-layout_body-requestForm-manageBookingContainer-currentBookingsTable-listView-0-listViewPanel-change&#39;, &#39;manageBookingContainer:currentBookingsTable:listView:0:listViewPanel:change&#39; ,function() { ;Wicket.hideIncrementally(&#39;id18--ajax-indicator&#39;);}.bind(this),function() { ;Wicket.hideIncrementally(&#39;id18--ajax-indicator&#39;);}.bind(this), function() {if (!function() {return Wicket.$$(this)&amp;&amp;Wicket.$$(&#39;id5&#39;)}.bind(this)()) {Wicket.hideIncrementally(&#39;id18--ajax-indicator&#39;);}return Wicket.$$(this)&amp;&amp;Wicket.$$(&#39;id5&#39;)}.bind(this));;; return false;"
+                              /><span
+                                style="display: none"
+                                class="wicket-ajax-indicator"
+                                id="id18--ajax-indicator"
+                                ><img
+                                  src="./PDA Bookings_files/indicator-ver-03CE3DCC84AF110E9DA8699A841E5200.gif"
+                                  alt=""
+                              /></span>
+                              <input
+                                type="submit"
+                                title="Cancel this booking"
+                                value="Cancel booking"
+                                class="licensing-button-short"
+                                name="manageBookingContainer:currentBookingsTable:listView:0:listViewPanel:cancel"
+                                id="id19"
+                                onclick="if (function(){return Wicket.$$(this)&amp;&amp;Wicket.$$(&#39;id5&#39;)}.bind(this)()) { Wicket.showIncrementally(&#39;id19--ajax-indicator&#39;);}var wcall=wicketSubmitFormById(&#39;id5&#39;, &#39;./page?1-4.IBehaviorListener.1-layout-layout_body-requestForm-manageBookingContainer-currentBookingsTable-listView-0-listViewPanel-cancel&#39;, &#39;manageBookingContainer:currentBookingsTable:listView:0:listViewPanel:cancel&#39; ,function() { ;Wicket.hideIncrementally(&#39;id19--ajax-indicator&#39;);}.bind(this),function() { ;Wicket.hideIncrementally(&#39;id19--ajax-indicator&#39;);}.bind(this), function() {if (!function() {return Wicket.$$(this)&amp;&amp;Wicket.$$(&#39;id5&#39;)}.bind(this)()) {Wicket.hideIncrementally(&#39;id19--ajax-indicator&#39;);}return Wicket.$$(this)&amp;&amp;Wicket.$$(&#39;id5&#39;)}.bind(this));;; return false;"
+                              /><span
+                                style="display: none"
+                                class="wicket-ajax-indicator"
+                                id="id19--ajax-indicator"
+                                ><img
+                                  src="./PDA Bookings_files/indicator-ver-03CE3DCC84AF110E9DA8699A841E5200.gif"
+                                  alt=""
+                              /></span>
+                              <span>
+                                <input
+                                  type="button"
+                                  id="Print"
+                                  class="licensing-button-short"
+                                  value="Print"
+                                  onclick="var w = window.open(&#39;./page?1-IResourceListener-layout-layout_body-requestForm-manageBookingContainer-currentBookingsTable-listView-0-listViewPanel-printPanel-printLink&amp;wicket:antiCache=1763720611893&#39;, &#39;&#39;, &#39;scrollbars=yes,location=no,menuBar=yes,resizable=yes,status=yes,toolbar=no,width=900,height=620&#39;); try {if (w.blur) w.focus();}catch(ignore){}; return false;"
+                                  title="Print the booking confirmation for this booking"
+                                />
+                              </span>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div id="id9">
+                  <span class="section-title">Make a new booking</span>
+                  <div class="licensing-big-form">
+                    <ol>
+                      <li>
+                        <span class="emphasized-plain">Test type:</span>
+                        <div class="plainDiv">
+                          <span class="plain">C - Car</span>
+                        </div>
+                      </li>
+                      <li>
+                        <span class="emphasized-plain">Region:</span>
+                        <div class="plainDiv">
+                          <span id="id1"
+                            ><input
+                              name="searchBookingContainer:siteRegion"
+                              type="radio"
+                              checked="checked"
+                              value="METRO"
+                              id="id1-METRO"
+                            /><label for="id1-METRO">Metro</label>
+                            <input
+                              name="searchBookingContainer:siteRegion"
+                              type="radio"
+                              value="REGIONAL"
+                              id="id1-REGIONAL"
+                            /><label for="id1-REGIONAL">Regional</label>
+                          </span>
+                        </div>
+                      </li>
+                      <li>
+                        <span class="emphasized-plain">Date range:</span>
+                        <div class="inputField">
+                          <input
+                            id="fromDateInput"
+                            maxlength="10"
+                            title="The date you would like to search for an available booking from (dd/mm/yyyy)"
+                            type="text"
+                            class="datePicker hasDatepicker"
+                            autocomplete="off"
+                            value=""
+                            name="searchBookingContainer:fromDate"
+                            onchange="var wcall=wicketAjaxPost(&#39;./page?1-4.IBehaviorListener.1-layout-layout_body-requestForm-searchBookingContainer-fromDate&#39;, wicketSerialize(Wicket.$(&#39;fromDateInput&#39;)),function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$(&#39;fromDateInput&#39;) != null;}.bind(this));"
+                            placeholder="dd/mm/yyyy"
+                          /><img
+                            class="ui-datepicker-trigger"
+                            src="./PDA Bookings_files/calendar.gif"
+                            alt="Choose Date"
+                            title="Choose Date"
+                          />
+                        </div>
+                      </li>
+                      <li>
+                        <span class="emphasized-plain">&nbsp;</span>
+                        <div class="inputField">
+                          <input
+                            id="toDateInput"
+                            maxlength="10"
+                            title="The date you would like to search for an available booking to (dd/mm/yyyy)"
+                            type="text"
+                            class="datePicker hasDatepicker"
+                            autocomplete="off"
+                            value=""
+                            name="searchBookingContainer:toDate"
+                            onchange="var wcall=wicketAjaxPost(&#39;./page?1-4.IBehaviorListener.1-layout-layout_body-requestForm-searchBookingContainer-toDate&#39;, wicketSerialize(Wicket.$(&#39;toDateInput&#39;)),function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$(&#39;toDateInput&#39;) != null;}.bind(this));"
+                            placeholder="dd/mm/yyyy"
+                          /><img
+                            class="ui-datepicker-trigger"
+                            src="./PDA Bookings_files/calendar.gif"
+                            alt="Choose Date"
+                            title="Choose Date"
+                          />
+                        </div>
+                      </li>
+                      <li>
+                        <span class="emphasized-plain"
+                          >Sites:&nbsp;&nbsp;*</span
+                        >
+                        <div class="plainDiv">
+                          <div
+                            style="
+                              max-height: 240px;
+                              min-width: 275px;
+                              overflow-x: hidden;
+                              overflow-y: auto;
+                            "
+                          >
+                            <span id="id2"
+                              ><input
+                                name="searchBookingContainer:siteList"
+                                type="checkbox"
+                                value="BTLR"
+                                id="id2-searchBookingContainer:siteList_BTLR"
+                              /><label
+                                for="id2-searchBookingContainer:siteList_BTLR"
+                                >Butler</label
+                              ><br />
+                              <input
+                                name="searchBookingContainer:siteList"
+                                type="checkbox"
+                                value="CAN"
+                                id="id2-searchBookingContainer:siteList_CAN"
+                              /><label
+                                for="id2-searchBookingContainer:siteList_CAN"
+                                >Cannington</label
+                              ><br />
+                              <input
+                                name="searchBookingContainer:siteList"
+                                type="checkbox"
+                                value="JNP"
+                                id="id2-searchBookingContainer:siteList_JNP"
+                              /><label
+                                for="id2-searchBookingContainer:siteList_JNP"
+                                >Joondalup</label
+                              ><br />
+                              <input
+                                name="searchBookingContainer:siteList"
+                                type="checkbox"
+                                value="KELM"
+                                id="id2-searchBookingContainer:siteList_KELM"
+                              /><label
+                                for="id2-searchBookingContainer:siteList_KELM"
+                                >Kelmscott</label
+                              ><br />
+                              <input
+                                name="searchBookingContainer:siteList"
+                                type="checkbox"
+                                value="MDH"
+                                id="id2-searchBookingContainer:siteList_MDH"
+                              /><label
+                                for="id2-searchBookingContainer:siteList_MDH"
+                                >Mandurah</label
+                              ><br />
+                              <input
+                                name="searchBookingContainer:siteList"
+                                type="checkbox"
+                                value="MID"
+                                id="id2-searchBookingContainer:siteList_MID"
+                              /><label
+                                for="id2-searchBookingContainer:siteList_MID"
+                                >Midland</label
+                              ><br />
+                              <input
+                                name="searchBookingContainer:siteList"
+                                type="checkbox"
+                                value="MBK"
+                                id="id2-searchBookingContainer:siteList_MBK"
+                              /><label
+                                for="id2-searchBookingContainer:siteList_MBK"
+                                >Mirrabooka</label
+                              ><br />
+                              <input
+                                name="searchBookingContainer:siteList"
+                                type="checkbox"
+                                value="ROCK"
+                                id="id2-searchBookingContainer:siteList_ROCK"
+                              /><label
+                                for="id2-searchBookingContainer:siteList_ROCK"
+                                >Rockingham</label
+                              ><br />
+                              <input
+                                name="searchBookingContainer:siteList"
+                                type="checkbox"
+                                value="SUC"
+                                id="id2-searchBookingContainer:siteList_SUC"
+                              /><label
+                                for="id2-searchBookingContainer:siteList_SUC"
+                                >Success</label
+                              ><br />
+                              <input
+                                name="searchBookingContainer:siteList"
+                                type="checkbox"
+                                value="CTYW"
+                                id="id2-searchBookingContainer:siteList_CTYW"
+                              /><label
+                                for="id2-searchBookingContainer:siteList_CTYW"
+                                >West Perth</label
+                              ><br />
+                            </span>
+                          </div>
+                        </div>
+                      </li>
+                    </ol>
+                    <div id="mnbbuttonBar">
+                      <table
+                        style="width: 100%; border: 0px; padding-right: 2px"
+                      >
+                        <tbody>
+                          <tr>
+                            <td style="text-align: right">
+                              <input
+                                value="Search"
+                                type="submit"
+                                title="Search"
+                                class="licensing-button-short"
+                                name="searchBookingContainer:search"
+                                id="idb"
+                                onclick="if (function(){return Wicket.$$(this)&amp;&amp;Wicket.$$(&#39;id5&#39;)}.bind(this)()) { Wicket.showIncrementally(&#39;idb--ajax-indicator&#39;);}var wcall=wicketSubmitFormById(&#39;id5&#39;, &#39;./page?1-4.IBehaviorListener.2-layout-layout_body-requestForm-searchBookingContainer-search&#39;, &#39;searchBookingContainer:search&#39; ,function() { ;Wicket.hideIncrementally(&#39;idb--ajax-indicator&#39;);}.bind(this),function() { ;Wicket.hideIncrementally(&#39;idb--ajax-indicator&#39;);}.bind(this), function() {if (!function() {return Wicket.$$(this)&amp;&amp;Wicket.$$(&#39;id5&#39;)}.bind(this)()) {Wicket.hideIncrementally(&#39;idb--ajax-indicator&#39;);}return Wicket.$$(this)&amp;&amp;Wicket.$$(&#39;id5&#39;)}.bind(this));;; return false;"
+                              /><span
+                                style="display: none"
+                                class="wicket-ajax-indicator"
+                                id="idb--ajax-indicator"
+                                ><img
+                                  src="./PDA Bookings_files/indicator-ver-03CE3DCC84AF110E9DA8699A841E5200.gif"
+                                  alt=""
+                              /></span>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  <span id="idc"></span>
+
+                  <div id="backgroundArea"></div>
+                  <div
+                    id="bookConfPopup"
+                    class="helppopup"
+                    style="width: 400px"
+                  >
+                    <ol class="noMarginList">
+                      <li>
+                        <div class="normalText" align="center">
+                          <span id="idd"></span><br />
+                          <br />
+                        </div>
+                      </li>
+
+                      <li><div>&nbsp;</div></li>
+                      <li>
+                        <div>
+                          <div align="center">
+                            <input
+                              type="button"
+                              class="licensing-button-short"
+                              name="cc-yes"
+                              id="cc-yes"
+                              value="Ok"
+                              onclick="javascript:hideObject(&#39;bookConfPopup&#39;); callWicket(&#39;yesExpiry&#39;);"
+                            />
+                          </div>
+                          <br />
+                          <br />
+                        </div>
+                      </li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </form>
+
+            <div id="ide" style="display: none"></div>
+
+            <div id="idf" style="display: none"></div>
+
+            <!-- Button bar -->
+            <div id="buttonBar">
+              <table style="width: 100%; border: 0px; padding-right: 2px">
+                <tbody>
+                  <tr>
+                    <td style="text-align: right">
+                      <input id="id10" style="display: none" />
+                      <input
+                        type="submit"
+                        value="Clear"
+                        title="Clear all form fields"
+                        class="licensing-button-short"
+                        name="clear"
+                        id="id11"
+                        onclick="if (function(){return Wicket.$$(this)&amp;&amp;Wicket.$$(&#39;id5&#39;)}.bind(this)()) { Wicket.showIncrementally(&#39;id11--ajax-indicator&#39;);}var wcall=wicketSubmitFormById(&#39;id5&#39;, &#39;./page?1-4.IBehaviorListener.2-layout-layout_body-requestForm-clear&#39;, &#39;clear&#39; ,function() { ;Wicket.hideIncrementally(&#39;id11--ajax-indicator&#39;);}.bind(this),function() { ;Wicket.hideIncrementally(&#39;id11--ajax-indicator&#39;);}.bind(this), function() {if (!function() {return Wicket.$$(this)&amp;&amp;Wicket.$$(&#39;id5&#39;)}.bind(this)()) {Wicket.hideIncrementally(&#39;id11--ajax-indicator&#39;);}return Wicket.$$(this)&amp;&amp;Wicket.$$(&#39;id5&#39;)}.bind(this));;; return false;"
+                      /><span
+                        style="display: none"
+                        class="wicket-ajax-indicator"
+                        id="id11--ajax-indicator"
+                        ><img
+                          src="./PDA Bookings_files/indicator-ver-03CE3DCC84AF110E9DA8699A841E5200.gif"
+                          alt=""
+                      /></span>
+                      <input
+                        value="Return to Overview"
+                        type="submit"
+                        title="Click here to return to the DoTDirect Overview page"
+                        class="licensing-button-long"
+                        name="returnToReferer"
+                        id="id12"
+                        onclick="var wcall=wicketSubmitFormById(&#39;id5&#39;, &#39;./page?1-4.IBehaviorListener.3-layout-layout_body-requestForm-returnToReferer&#39;, &#39;returnToReferer&#39; ,function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$$(this)&amp;&amp;Wicket.$$(&#39;id5&#39;)}.bind(this));;; return false;"
+                      />
+                      <input id="id13" style="display: none" />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div id="applicationfooter">
+          <div class="container-center">
+            <div class="applicationfooter no_padding_on_big_screen">
+              <div class="align-right">
+                <a href="http://www.transport.wa.gov.au/dotdirect"
+                  >DoTDirect Home</a
+                >
+                /
+                <a
+                  href="https://www.transport.wa.gov.au/about-us/legal-information"
+                  target="new"
+                  >Privacy</a
+                >
+                /
+                <a
+                  href="https://www.transport.wa.gov.au/about-us/legal-information"
+                  target="new"
+                  >Disclaimer</a
+                >
+                /
+                <a
+                  href="https://www.transport.wa.gov.au/about-us/legal-information"
+                  target="new"
+                  >Copyright ©
+                  <script language="javascript">
+                    /*<![CDATA[*/
+                    displayYear();
+                    /*]]>*/
+                  </script>
+                  2025 Department of Transport</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script type="text/javascript">
+        /*<![CDATA[*/
+
+        initialiseFontSize();
+
+        /*]]>*/
+      </script>
+    </span>
+
+    <div
+      id="ui-datepicker-div"
+      class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"
+    ></div>
+  </body>
+</html>
